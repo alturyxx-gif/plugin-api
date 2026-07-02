@@ -17,6 +17,7 @@ sealed class StreamResult {
     /** A single playable variant returned alongside the primary stream. */
     data class Variant(
         val id: String,           // unique identifier (fid)
+        val name: String,         // display name from API e.g. "1080p HEVC"
         val quality: String,      // e.g. "4K", "1080p"
         val codec: String,        // e.g. "hevc", "h264", ""
         val tag: String,          // e.g. "hdr", "dv", "remux", "bw", ""
