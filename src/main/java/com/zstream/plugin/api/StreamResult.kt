@@ -22,6 +22,12 @@ sealed class StreamResult {
         val codec: String,        // e.g. "hevc", "h264", ""
         val tag: String,          // e.g. "hdr", "dv", "remux", "bw", ""
         val streamUrl: String,    // decrypted HLS URL
+        /**
+         * True if the stream URL expires shortly after resolution (e.g. signed CDN tokens).
+         * When the user switches to this variant, the app should re-resolve the source to
+         * obtain a fresh URL rather than using the cached one.
+         */
+        val requiresRefreshOnSwitch: Boolean = false,
     )
 
     /** Source had no result for this media (not found, region-locked, etc.). Try next source. */
