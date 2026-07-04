@@ -12,6 +12,12 @@ sealed class StreamResult {
         val headers: Map<String, String> = emptyMap(),
         val codec: String = "",                    // e.g. "hevc", "h264", "" if unknown
         val variants: List<Variant> = emptyList(), // all available variants for the picker
+        /**
+         * True if the CDN URL expires quickly after resolution (e.g. signed tokens with
+         * short TTL). When set, the app skips the HLS probe that would otherwise consume
+         * the token before ExoPlayer gets it.
+         */
+        val skipProbe: Boolean = false,
     ) : StreamResult()
 
     /** A single playable variant returned alongside the primary stream. */
