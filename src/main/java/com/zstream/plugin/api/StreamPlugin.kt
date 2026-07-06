@@ -30,6 +30,5 @@ interface StreamPlugin {
      * [sourceId] will always be a value previously returned by [availableSources].
      * If [sourceId] is unrecognised, return [StreamResult.Error].
      */
-    suspend fun resolve(media: MediaRequest, sourceId: String): StreamResult =
-        resolve(media)
+    suspend fun resolve(media: MediaRequest, sourceId: String): StreamResult
 }
